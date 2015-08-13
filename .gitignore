@@ -2,3 +2,6 @@
 *.db
 *.env
 db.sqlite3
+
+# Pip when run from Conda leaves django-flatblocks files in src/
+src

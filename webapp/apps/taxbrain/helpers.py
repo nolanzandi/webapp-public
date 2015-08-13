@@ -1,6 +1,5 @@
 from collections import namedtuple
 import taxcalc
-import dropq
 import os
 import requests
 from requests.exceptions import Timeout, RequestException
@@ -69,7 +68,12 @@ TAXCALC_RESULTS_DFTABLE_COL_FORMATS = [
     [         1,   '%', 1],  # "%age Tax Decrease",
     [         1,   '%', 1],  # "Share of Overall Change"
 ]
-TAXCALC_RESULTS_BIN_ROW_KEYS = dropq.dropq.bin_row_names
+TAXCALC_RESULTS_BIN_ROW_KEYS = [
+    "less_than_10", "ten_twenty", "twenty_thirty", "thirty_forty",
+    "forty_fifty", "fifty_seventyfive", "seventyfive_hundred",
+    "hundred_twohundred", "twohundred_fivehundred",
+    "fivehundred_thousand", "thousand_up", "all"
+]
 TAXCALC_RESULTS_BIN_ROW_KEY_LABELS = {
     'less_than_10':'Less than 10',
     'ten_twenty':'10-20',
@@ -84,7 +88,11 @@ TAXCALC_RESULTS_BIN_ROW_KEY_LABELS = {
     'thousand_up':'1000+',
     'all':'All'
 }
-TAXCALC_RESULTS_DEC_ROW_KEYS = dropq.dropq.decile_row_names
+TAXCALC_RESULTS_DEC_ROW_KEYS = [
+    "perc0-10", "perc10-20", "perc20-30", "perc30-40",
+    "perc40-50", "perc50-60", "perc60-70", "perc70-80",
+    "perc80-90", "perc90-100", "all"
+]
 TAXCALC_RESULTS_DEC_ROW_KEY_LABELS = {
     'perc0-10':'0-10%',
     'perc10-20':'10-20%',
